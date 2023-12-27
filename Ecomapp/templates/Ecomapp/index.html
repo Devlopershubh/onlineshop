@@ -1,0 +1,43 @@
+
+{% extends 'Ecomapp/base.html' %}
+
+
+{% block content %}
+
+
+<div class="container">
+        <div class="row">
+                {% for x in data %}
+                <div class="col-lg-3 col-12">
+                        <div class="card mt-4">
+                                <div class="card-body shadow">
+                                        <a href="../details/{{x.id}}">
+                                                <img src="{{x.image.url}}" width="100%" height="200px">
+                                        </a>
+                                        <p>{{x.name}}</p>
+                                        <p>{{x.price}}</p>
+                                </div>
+
+                                <div class="card-footer d-flex btn-group">
+                                        <form method="post" action="../addtocart/">
+                                                {% csrf_token %}
+                              
+                                                <input type="hidden" name="user" value="{{user.id}}">
+                                                <input type="hidden" name="productId" value="{{x.id}}">
+                                                
+                                                <input type="hidden" name="qty" value="1">
+                              
+                                                <input type="submit" name="btncart" value="Add To Cart" class="btn btn-primary">
+                                                <input type="submit" name="btncart" value="Buy now" class="btn btn-success">
+                              
+                              
+                                              </form>
+                                </div>
+                        </div>
+                </div>
+                {% endfor %}
+        </div>
+        </div>
+
+{% endblock %}
+</html>

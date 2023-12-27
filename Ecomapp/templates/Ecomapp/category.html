@@ -1,0 +1,24 @@
+{% extends 'Ecomapp/base.html'%}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% for x in data %}
+        <div class="col-lg pg-2">
+
+            <div class="card" style="width: 10rem;">
+            <a href="../product/{{x.id}}" class="rounded-circle"> <img src="{{x.category_image.url}}" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+                <p class="card-tittle text-center">{{x.category_name}}</p>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+

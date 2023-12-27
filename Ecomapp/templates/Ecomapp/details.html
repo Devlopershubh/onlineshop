@@ -1,0 +1,45 @@
+{% extends 'Ecomapp/base.html'%}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="{{data.image.url}}" height="400px" width="100%">
+        </div>
+        <div class="col-lg-8">
+            <h2>{{data.title}}</h2>
+            <p><b>{{data.price}}</b></p>
+            <p>{{data.description}}</p>
+
+            <a href="addtocart/" class="btn btn-primary">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+        <a href="addtocart/" class="btn btn-success">By Now</a>
+        </div>
+
+        
+    </div>
+    </div>
+
+
+    <div class="container mt-4">
+    
+    <h2 class="mt-4">--Related Products--</h2><hr>
+
+    <div class="row">
+        {% for x in related %}
+        <div class="col-lg-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <a href="../details/{{x.id}}"><img src="{{x.image.url}}" width="100%" height="200"></a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+       
+
+</div>
+
+
+{% endblock %}

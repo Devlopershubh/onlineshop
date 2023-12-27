@@ -1,0 +1,33 @@
+{% extends 'Ecomapp/base.html'%}
+
+{% block content %}
+
+
+
+<div class="container-lg border-start border-end border-bottom">
+    <div class="row border-bottom shadow-sm">
+        <div class="col-12 text-center p-3"><h3>my Orders</h3></div>
+    </div>
+
+    {% for x in myorder %}
+        {% for p in data %}
+    <div class="row">
+        <div class="col-4 mt-4 border-bottom"><img src="{{p.image.url}}" style="height: 120px;"></div>
+    
+    <div class="col-4 border-bottom">
+        <p>{{p.name}}</p>
+        <p>{{p.tittle}}</p>
+        <p>{{p.price}}</p>
+        
+
+    </div>
+    <div class="col-4 border-bottom">
+        <p><b>Order Date: </b>{{x.orederDate}}</p>
+    </div>
+    </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+
+
+{% endblock %}
